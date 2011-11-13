@@ -23,6 +23,10 @@
                 </category>
             </intent-filter>
         </activity>
+        <activity
+            android:name=".HushPreferences"
+            android:label="@string/set_preferences"
+            android:theme="@android:style/Theme.NoTitleBar"/>
     </application>
 
 </manifest>

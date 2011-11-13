@@ -28,22 +28,19 @@ object DefaultDecider extends Decider with Logged {
       "ll" -> "%s,%s".format(lat, lon)
     ) as_str)
     log.debug(json)
-    val msg = new JSONTokener(json).nextValue() match {
+    val (dec, msg) = new JSONTokener(json).nextValue() match {
       case ary: JSONArray => ary.length match {
-        case 0 => "Make as much noise as you like"
-        case n => "You have entered a quiet zone %s" format(
-          ary.get(0).asInstanceOf[JSONObject].getString("name")
-        )
+        case 0 => (false, "Make as much noise as you like")
+        case n =>
+          (true, "You have entered a quiet zone\n %s" format(
+            ary.get(0).asInstanceOf[JSONObject].getString("name")
+          ))
       }
-      case obj: JSONObject => "You have entered a quiet zone %s" format(
-        obj.getString("name")
-      )
+      case obj: JSONObject =>
+        (true, "You have entered a quiet zone\n%s" format(
+          obj.getString("name")
+        ))
     }
-    Toast.makeText(
-      ctx,
-      msg,
-      Toast.LENGTH_LONG
-    ).show
-    (true, Some(msg))
+    (dec, Some(msg))
   }
 }
