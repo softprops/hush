@@ -1,0 +1,5 @@
+server/src/main/resources/hush.properties
+target
+test/target
+server/target
+project/build/target
