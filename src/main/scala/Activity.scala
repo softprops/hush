@@ -40,7 +40,7 @@ class MainActivity extends Activity
     findViewById(R.id.hush_txt) match {
       case tv: TextView =>
         try {
-          tv.setTypeface(Typeface.createFromAsset(getAssets, "/ChunkFive_Roman.ttf"))
+          tv.setTypeface(Typeface.createFromAsset(getAssets, "ChunkFive-Roman.ttf"))
         } catch {
           case e => log.error("error assigning typeface %s" format e.getMessage, Some(e))
         }
