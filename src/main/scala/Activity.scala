@@ -22,15 +22,14 @@ class MainActivity extends Activity
     true
   }
      
-  override def onOptionsItemSelected(i: MenuItem) = {
+  override def onOptionsItemSelected(i: MenuItem) =
     i.getItemId match {
-      case R.id.my_quite_places =>
+      case R.id.my_quiet_places =>
         log.debug("my quite places selected")
+        startPreferences
         true
-      case _ =>
-        super.onOptionsItemSelected(i)
+      case _ => super.onOptionsItemSelected(i)
     }
-  }
 
   override def onCreate(previous: Bundle) {
     super.onCreate(previous)
@@ -55,7 +54,6 @@ class MainActivity extends Activity
                  btn.setText("It's okay.\nGo ahead and ring")
                  am.setRingerMode(AudioManager.RINGER_MODE_VIBRATE)
                  toast("ringer set to vibrate")
-                 startPreferences
                }
              } else {
                audios { am =>

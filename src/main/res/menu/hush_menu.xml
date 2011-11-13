@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/my_quite_places"
-          android:title="@+id/show_my_quite_places"/>
+    <item android:id="@+id/my_quiet_places"
+          android:title="@+id/show_my_quiet_places"
+          android:icon="@android:drawable/ic_menu_agenda"/>
 </menu>
